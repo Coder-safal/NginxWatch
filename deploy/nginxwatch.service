@@ -1,0 +1,23 @@
+[Unit]
+Description=nginxwatch website monitor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=nginxwatch
+Group=nginxwatch
+WorkingDirectory=/var/lib/nginxwatch
+EnvironmentFile=-/etc/nginxwatch/secret.env
+ExecStart=/opt/nginxwatch/nginxwatch -c /etc/nginxwatch/nginxwatch.conf
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+StateDirectory=nginxwatch
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
