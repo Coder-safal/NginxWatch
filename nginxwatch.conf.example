@@ -1,0 +1,22 @@
+# Copy to nginxwatch.conf. Relative paths are relative to the working directory.
+nginx_dir = /etc/nginx/sites-enabled
+interval_sec = 30
+fails_before_down = 3
+timeout_sec = 10
+check_local = 1
+check_public = 1
+local_address = 127.0.0.1
+health_path = /
+# http_ca_file = /path/to/private-ca.pem
+ignore = localhost
+log_file = nginxwatch.log
+
+# Optional email. Without these settings, events are still logged.
+# SMTP requires TLS. Use smtps://, or smtp:// with smtp_starttls = 1.
+# smtp_url = smtps://smtp.example.com:465
+# smtp_user = monitor@example.com
+# mail_from = monitor@example.com
+# mail_to = you@example.com
+# Set SMTP_PASS in the environment rather than storing it here.
+# smtp_starttls = 0
+# smtp_ca_file = /path/to/private-ca.pem
